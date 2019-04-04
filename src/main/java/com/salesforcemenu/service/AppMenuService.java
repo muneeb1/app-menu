@@ -50,9 +50,9 @@ public class AppMenuService implements AppMenuRepository {
 		String response_string = EntityUtils.toString(queryResponse.getEntity());
 		// Map json string to appMenu class
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		AppMenu result = mapper.readValue(response_string, AppMenu.class);
-
+		
+		if(result != null) {
 		List<App> apps = new ArrayList<>();
 		for (App resultedApp : result.getApps()) {
 			if (resultedApp.getDeveloperName().equals("Trail_App")) {
@@ -62,6 +62,7 @@ public class AppMenuService implements AppMenuRepository {
 			}
 		}
 		appMenu.setApps(apps);
+		}
 		return appMenu;
 	}
 

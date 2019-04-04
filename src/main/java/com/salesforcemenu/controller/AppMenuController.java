@@ -24,11 +24,10 @@ public class AppMenuController {
 	@RequestMapping(value = "/v1/mobile/AppMenu", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public AppMenu getAll(@RequestHeader(value = "access_token") String accessToken,
-			@RequestHeader(value = "instance_url") String instanceUrl,
-			@RequestParam(value = "ID", defaultValue = "") String id)
+			@RequestHeader(value = "instance_url") String instanceUrl)
 			throws URISyntaxException, ClientProtocolException, IOException, ParseException {
 
-		 AppMenu appMenu = appMenuService.getAll(accessToken, instanceUrl);
+		AppMenu appMenu = appMenuService.getAll(accessToken, instanceUrl);
 		return appMenu;
 	}
 }
