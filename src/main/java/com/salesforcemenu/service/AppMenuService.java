@@ -17,11 +17,12 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.salesforcemenu.dao.AppMenuRepository;
 import com.salesforcemenu.model.App;
 import com.salesforcemenu.model.AppMenu;
 
 @Service
-public class AppMenuService {
+public class AppMenuService implements AppMenuRepository {
 
 	private String serviceUrl = "/services/data/v44.0/ui-api/apps";
 
